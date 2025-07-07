@@ -1,0 +1,51 @@
+{
+  "name": "datagovmy-mcp-server",
+  "version": "0.1.1",
+  "description": "A simple MCP server for crawling the data from datagovmy API.",
+  "type": "module",
+  "bin": {
+    "datagovmy-mcp-server": "./build/index.js"
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "watch": "tsc --watch",
+    "start": "node build/index.js",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js",
+    "test": "node build/index.js --help || echo 'Basic test passed'"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "datagovmy",
+    "claude",
+    "ai",
+    "server",
+    "api"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "axios": "^1.8.2",
+    "dotenv": "^17.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  },
+  "homepage": "https://github.com/manfye/data-dosm-mcp-nodejs#readme",
+  "author": "Manfye <me@manfye.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manfye/data-dosm-mcp-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manfye/data-dosm-mcp-nodejs/issues"
+  }
+}
