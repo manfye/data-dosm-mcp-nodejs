@@ -8,7 +8,6 @@ import {
   McpError,
 } from '@modelcontextprotocol/sdk/types.js';
 import axios, { AxiosInstance } from 'axios';
-import dotenv from 'dotenv';
 
 // Type definitions
 interface GitHubFile {
@@ -36,8 +35,6 @@ function isSearchArgs(args: any): args is SearchArgs {
   return args && typeof args.keyword === 'string';
 }
 
-// Load environment variables
-dotenv.config();
 
 class DataCatalogueMCPServer {
   server: Server;
@@ -84,7 +81,7 @@ class DataCatalogueMCPServer {
         },
         {
           name: 'get_catalogue_metadata',
-          description: 'Fetch metadata for a specific data catalogue by ID from GitHub.',
+          description: 'Fetch metadata for a specific data catalogue by ID from GitHub. do this before getting the data, if   "exclude_openapi": true, mean you cant get the catalogue data. update the user on this and recommend them to get from manual csv.',
           inputSchema: {
             type: 'object',
             properties: { 
